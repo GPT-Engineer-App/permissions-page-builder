@@ -31,8 +31,11 @@ const Index = () => {
           </ListItem>
         ))}
       </List>
-      <Button leftIcon={<FaPlus />} colorScheme="blue" onClick={navigateToNewPermission}>
+      <Button leftIcon={<FaPlus />} colorScheme="blue" onClick={navigateToNewPermission} mr={4}>
         Add New Permission
+      </Button>
+      <Button colorScheme="green" onClick={() => console.log("Navigating to assign permission...")}>
+        Assign Permission
       </Button>
     </VStack>
   );
