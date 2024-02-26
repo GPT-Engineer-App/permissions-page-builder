@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Heading, List, ListItem, VStack } from "@chakra-ui/react";
+import { Button, Heading, List, Menu, MenuButton, MenuItem, MenuList, VStack } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
 
 // Mock permissions data
@@ -26,9 +26,16 @@ const Index = () => {
       </Heading>
       <List spacing={3}>
         {permissionsData.map((permission) => (
-          <ListItem key={permission.id} paddingY={2}>
-            {permission.name}
-          </ListItem>
+          <Menu key={permission.id}>
+            <MenuButton as={Button} paddingY={2} width="full" textAlign="left">
+              {permission.name}
+            </MenuButton>
+            <MenuList>
+              <MenuItem command="⌘D">Delete</MenuItem>
+              <MenuItem command="⌘N">Add</MenuItem>
+              <MenuItem command="⌘A">Assign Permission</MenuItem>
+            </MenuList>
+          </Menu>
         ))}
       </List>
       <Button leftIcon={<FaPlus />} colorScheme="blue" onClick={navigateToNewPermission} mr={4}>
